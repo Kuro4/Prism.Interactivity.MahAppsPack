@@ -1,0 +1,106 @@
+﻿<Window x:Class="Prism.InteractivityExtension_Samples.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Prism.InteractivityExtension_Samples"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:prism="http://prismlibrary.com/"
+        xmlns:prismEx="clr-namespace:Prism.InteractivityExtension;assembly=Prism.InteractivityExtension"
+        xmlns:mahApps="clr-namespace:Prism.InteractivityExtension_Samples.MahApps_Sample"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="200" Width="400">
+    <Window.DataContext>
+        <local:MainWindowViewModel/>
+    </Window.DataContext>
+
+    <i:Interaction.Triggers>
+        <!--Normal-->
+        <prism:InteractionRequestTrigger SourceObject="{Binding NormalNotification}">
+            <prism:PopupWindowAction WindowStartupLocation="CenterOwner"/>
+        </prism:InteractionRequestTrigger>
+        <prism:InteractionRequestTrigger SourceObject="{Binding NormalConfirmation}">
+            <prism:PopupWindowAction WindowStartupLocation="CenterOwner"/>
+        </prism:InteractionRequestTrigger>
+        <prism:InteractionRequestTrigger SourceObject="{Binding SubWindowNotification}">
+            <prismEx:PopupWindowActionBase/>
+        </prism:InteractionRequestTrigger>
+        <!--Metro-->
+        <prism:InteractionRequestTrigger SourceObject="{Binding MetroNotification}">
+            <prismEx:PopupMetroWindowAction/>
+        </prism:InteractionRequestTrigger>
+        <prism:InteractionRequestTrigger SourceObject="{Binding MetroConfirmation}">
+            <prismEx:PopupMetroWindowAction/>
+        </prism:InteractionRequestTrigger>
+        <prism:InteractionRequestTrigger SourceObject="{Binding MetroWindowNotification}">
+            <mahApps:PopupMetroWindow_SampleAction/>
+        </prism:InteractionRequestTrigger>
+    </i:Interaction.Triggers>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Border
+            Grid.Row="1"
+            BorderBrush="Black"
+            BorderThickness="1,1,0.5,1">
+            <StackPanel>
+                <TextBlock
+                    TextWrapping="Wrap"
+                    TextAlignment="Center"
+                    VerticalAlignment="Center">
+                    <TextBlock>
+                        PopUpWindowAction<LineBreak />
+                        (通常版)
+                    </TextBlock>
+                </TextBlock>
+                <StackPanel>
+                    <Button
+                        Content="Notification"
+                        Command="{Binding RaiseNormalNotification}"/>
+                    <Button
+                        Content="Confirmation"
+                        Command="{Binding RaiseNormalConfirmation}"/>
+                    <Button
+                        Content="ShowSubWindow"
+                        Command="{Binding RaiseSubWindowNotification}"
+                        />
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        <Border
+            Grid.Column="1"
+            Grid.Row="1"
+            BorderBrush="Black"
+            BorderThickness="0.5,1,1,1" d:IsHidden="True">
+            <StackPanel>
+                <TextBlock
+                    TextWrapping="Wrap"
+                    TextAlignment="Center"
+                    VerticalAlignment="Center">
+                    <TextBlock>
+                        PopupMetroWindowAction<LineBreak/>
+                        (MahApps.Metro版)
+                    </TextBlock>
+                </TextBlock>
+                <StackPanel>
+                    <Button
+                        Content="Notification"
+                        Command="{Binding RaiseMetroNotification}"/>
+                    <Button
+                        Content="Confirmation"
+                        Command="{Binding RaiseMetroConfirmation}"/>
+                    <Button
+                        Content="ShowMetroWindow"
+                        Command="{Binding RaiseMetroWindowNotification}"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

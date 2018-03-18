@@ -1,4 +1,5 @@
-﻿using Prism.Interactivity.InteractionRequest;
+﻿using Prism.Interactivity.DefaultPopupWindows;
+using Prism.Interactivity.InteractionRequest;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -111,7 +112,21 @@ namespace Prism.InteractivityExtension
         protected virtual Window CreateWindow(INotification notification)
         {
             Window window;
-            if (this.WindowType == null) window = new Window() { Width = 300,Height = 150 };
+            if (this.WindowType == null)
+            {
+                if(notification == null)
+                {
+                    window = new DefaultWindow() { Width = 300, Height = 150 };
+                }
+                else if (notification is Confirmation)
+                {
+                    window = new DefaultConfirmationWindow();
+                }
+                else
+                {
+                    window = new DefaultNotificationWindow();
+                }
+            }
             else window = this.WindowType.GetConstructor(Type.EmptyTypes).Invoke(null) as Window;
             return window;
         }

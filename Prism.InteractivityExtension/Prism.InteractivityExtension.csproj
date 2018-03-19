@@ -108,7 +108,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DefaultPopupMetroWindows\InteractonRequestExtensions.cs" />
+    <Compile Include="InteractonRequestExtensions.cs" />
     <Compile Include="DefaultPopupMetroWindows\Themes.cs" />
     <Compile Include="PopupMetroWindowAction.cs" />
     <Compile Include="PopupWindowActionBase.cs" />

@@ -52,7 +52,7 @@ namespace Prism.InteractivityExtension
             {
                 window = new DefaultMetroWindow() { Title = notification.Title,Content = notification.Content };
             }
-            else if (notification is Confirmation)
+            else if (notification is IConfirmation)
             {
                 window = new DefaultConfirmationMetroWindow() { Confirmation = (IConfirmation)notification };
             }

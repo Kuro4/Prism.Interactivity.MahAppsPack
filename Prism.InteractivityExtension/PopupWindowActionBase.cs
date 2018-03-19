@@ -118,13 +118,13 @@ namespace Prism.InteractivityExtension
                 {
                     window = new DefaultWindow() { Width = 300, Height = 150 };
                 }
-                else if (notification is Confirmation)
+                else if (notification is IConfirmation)
                 {
-                    window = new DefaultConfirmationWindow();
+                    window = new DefaultConfirmationWindow() { Confirmation = (IConfirmation)notification };
                 }
                 else
                 {
-                    window = new DefaultNotificationWindow();
+                    window = new DefaultNotificationWindow() { Notification = notification };
                 }
             }
             else window = this.WindowType.GetConstructor(Type.EmptyTypes).Invoke(null) as Window;

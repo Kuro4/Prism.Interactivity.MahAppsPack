@@ -148,9 +148,13 @@ namespace Prism.InteractivityExtension
         /// <param name="notification"></param>
         protected virtual void ApplyNotificationToWindow(Window window, INotification notification)
         {
-            if (notification == null) return;
-            window.Title = notification.Title;
-            if (notification.Content != null) window.Content = notification.Content;
+            if(!(window is DefaultConfirmationWindow) && !(window is DefaultNotificationWindow))
+            {
+                if (notification == null) return;
+                window.Title = notification.Title;
+                if(this.WindowType == null) if (notification.Content != null) window.Content = notification.Content;
+            }
+
         }
         /// <summary>
         /// Windowでの操作結果をNotifictionへ適用する
@@ -163,3 +167,4 @@ namespace Prism.InteractivityExtension
         }
     }
 }
+

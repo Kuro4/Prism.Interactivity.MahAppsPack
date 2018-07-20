@@ -73,8 +73,7 @@ namespace Prism.InteractivityExtension
 
         protected override void Invoke(object parameter)
         {
-            var args = parameter as InteractionRequestedEventArgs;
-            if (args == null) return;
+            if (!(parameter is InteractionRequestedEventArgs args)) return;
 
             //Windowを生成する
             this.Window = this.CreateWindow(args.Context);
@@ -92,14 +91,13 @@ namespace Prism.InteractivityExtension
 
             //Windowを閉じた時にコールバックを発火
             var callback = args.Callback;
-            EventHandler handler = null;
-            handler =
-                (o, e) =>
-                {
-                    this.Window.Closed -= handler;
-                    this.ApplyWindowToNotification(this.Window, args.Context);
-                    callback?.Invoke();
-                };
+            void handler(object o, EventArgs e)
+            {
+                this.Window.Closed -= handler;
+                this.ApplyWindowToNotification(this.Window, args.Context);
+                callback?.Invoke();
+            }
+
             this.Window.Closed += handler;
             //Windowを表示
             if (this.IsModal) this.Window.ShowDialog();
@@ -167,4 +165,3 @@ namespace Prism.InteractivityExtension
         }
     }
 }
-

@@ -151,6 +151,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Prism.InteractivityExtension.MahAppsPack\Prism.InteractivityExtension.MahAppsPack.csproj">
+      <Project>{4e4ed199-c227-4492-a259-a3da10946172}</Project>
+      <Name>Prism.InteractivityExtension.MahAppsPack</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Prism.InteractivityExtension\Prism.InteractivityExtension.csproj">
       <Project>{97ea63f8-3294-47e8-808f-8c3885d74a32}</Project>
       <Name>Prism.InteractivityExtension</Name>

@@ -1,5 +1,6 @@
 ﻿using Prism.Interactivity.InteractionRequest;
 using Prism.InteractivityExtension;
+using Prism.InteractivityExtension.MahAppsPack;
 using Reactive.Bindings;
 using System;
 using System.Collections.Generic;

@@ -8,6 +8,7 @@
                       xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
                       xmlns:prism="http://prismlibrary.com/"
                       xmlns:prismEx="clr-namespace:Prism.InteractivityExtension;assembly=Prism.InteractivityExtension"
+                      xmlns:prismMetro="clr-namespace:Prism.InteractivityExtension.MahAppsPack;assembly=Prism.InteractivityExtension.MahAppsPack"
                       xmlns:sys="clr-namespace:System;assembly=mscorlib" 
                       prism:ViewModelLocator.AutoWireViewModel="True"
                       d:DataContext="{d:DesignInstance {x:Type local:MetroWindow_SampleViewModel}, IsDesignTimeCreatable=True}" 
@@ -23,12 +24,12 @@
 
             <ObjectDataProvider x:Key="AccentEnumKey" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
                 <ObjectDataProvider.MethodParameters>
-                    <x:Type Type="prismEx:Accents"/>
+                    <x:Type Type="prismMetro:Accents"/>
                 </ObjectDataProvider.MethodParameters>
             </ObjectDataProvider>
             <ObjectDataProvider x:Key="ThemeEnumKey" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
                 <ObjectDataProvider.MethodParameters>
-                    <x:Type Type="prismEx:Themes"/>
+                    <x:Type Type="prismMetro:Themes"/>
                 </ObjectDataProvider.MethodParameters>
             </ObjectDataProvider>
         </ResourceDictionary>
@@ -36,12 +37,12 @@
 
     <i:Interaction.Triggers>
         <prism:InteractionRequestTrigger SourceObject="{Binding Notification}">
-            <prismEx:PopupMetroWindowAction
+            <prismMetro:PopupMetroWindowAction
                 Accent="{Binding Accent.Value}"
                 Theme="{Binding Theme.Value}"/>
         </prism:InteractionRequestTrigger>
         <prism:InteractionRequestTrigger SourceObject="{Binding Confirmation}">
-            <prismEx:PopupMetroWindowAction
+            <prismMetro:PopupMetroWindowAction
                 Accent="{Binding Accent.Value}"
                 Theme="{Binding Theme.Value}"/>
         </prism:InteractionRequestTrigger>

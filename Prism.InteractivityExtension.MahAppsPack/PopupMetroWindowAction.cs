@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using Prism.Interactivity.InteractionRequest;
-using Prism.InteractivityExtension.DefaultPopupMetroWindows;
+using Prism.InteractivityExtension.MahAppsPack.DefaultPopupMetroWindows;
 
 namespace Prism.InteractivityExtension.MahAppsPack
 {

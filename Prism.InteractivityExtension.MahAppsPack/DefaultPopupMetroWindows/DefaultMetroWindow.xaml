@@ -11,7 +11,7 @@
     <controls:MetroWindow.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/Prism.InteractivityExtension;component/DefaultPopupMetroWindows/MetroWindowStyle.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/Prism.InteractivityExtension.MahAppsPack;component/MetroWindowStyle.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </controls:MetroWindow.Resources>

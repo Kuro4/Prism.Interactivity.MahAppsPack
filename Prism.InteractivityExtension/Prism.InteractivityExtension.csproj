@@ -76,41 +76,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="DefaultPopupMetroWindows\DefaultConfirmationMetroWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="DefaultPopupMetroWindows\DefaultMetroWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="DefaultPopupMetroWindows\DefaultNotificationMetroWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DefaultPopupMetroWindows\Accents.cs" />
-    <Compile Include="DefaultPopupMetroWindows\DefaultConfirmationMetroWindow.xaml.cs">
-      <DependentUpon>DefaultConfirmationMetroWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DefaultPopupMetroWindows\DefaultMetroWindow.xaml.cs">
-      <DependentUpon>DefaultMetroWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DefaultPopupMetroWindows\DefaultNotificationMetroWindow.xaml.cs">
-      <DependentUpon>DefaultNotificationMetroWindow.xaml</DependentUpon>
-    </Compile>
-    <Page Include="DefaultPopupMetroWindows\MetroWindowStyle.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="InteractonRequestExtensions.cs" />
-    <Compile Include="DefaultPopupMetroWindows\Themes.cs" />
-    <Compile Include="PopupMetroWindowAction.cs" />
     <Compile Include="PopupWindowActionBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

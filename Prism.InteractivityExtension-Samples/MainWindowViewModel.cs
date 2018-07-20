@@ -39,7 +39,7 @@ namespace Prism.InteractivityExtension_Samples
             this.RaiseMetroNotification.Subscribe(() => this.MetroNotification.RaiseEx("MetroNotification", "MetroNotification", n => Console.WriteLine("MetroNotification")));
             this.RaiseMetroConfirmation.Subscribe(() => this.MetroConfirmation.RaiseEx("MetroConfirmation", "MetroConfirmation?", n => Console.WriteLine($"Metro:{n.Confirmed}")));
             this.RaiseMetroWindowNotification.Subscribe(() => this.MetroWindowNotification.RaiseEx("MetroWindowNotification", "", n => Console.WriteLine("MetroWindowNotification")));
-            
+
         }
     }
 }

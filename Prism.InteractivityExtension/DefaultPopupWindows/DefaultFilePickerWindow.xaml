@@ -1,0 +1,112 @@
+﻿<Window x:Class="Prism.InteractivityExtension.DefaultPopupWindows.DefaultFilePickerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Prism.InteractivityExtension"
+        mc:Ignorable="d"
+        d:DataContext="{d:DesignInstance {x:Type local:FilePickerConfirmation}}"
+        MinWidth="300"
+        MinHeight="150"
+        Title="{Binding Title}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid x:Name="Navigation"
+              Grid.ColumnSpan="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <StackPanel
+                Orientation="Horizontal">
+                <Button Background="{x:Null}"
+                        BorderBrush="{x:Null}"
+                        Foreground="{x:Null}">
+                    <Button.Content>
+                        <Image Source="/Prism.InteractivityExtension;component/Resources/Previous_16x.png"/>
+                    </Button.Content>
+                </Button>
+                <Button Background="{x:Null}"
+                        BorderBrush="{x:Null}"
+                        Foreground="{x:Null}">
+                    <Button.Content>
+                        <Image Source="/Prism.InteractivityExtension;component/Resources/Next_16x.png"/>
+                    </Button.Content>
+                </Button>
+                <!--履歴は10まで-->
+                <Button 
+                    Background="{x:Null}"
+                    BorderBrush="{x:Null}"
+                    Foreground="{x:Null}">
+                    <Button.Content>
+                        <Image Source="/Prism.InteractivityExtension;component/Resources/GlyphDown_linkBlueNoHalo_16x.png"/>
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+            <Grid
+                Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBox BorderThickness="1,1,0,1"/>
+                <!--履歴は10まで-->
+                <Button
+                    Grid.Column="1"
+                    Background="{x:Null}"
+                    BorderBrush="{x:Null}"
+                    Foreground="{x:Null}" Margin="-1,0,0,0">
+                    <Button.Content>
+                        <Image Source="/Prism.InteractivityExtension;component/Resources/GlyphDown_linkBlueNoHalo_16x.png"/>
+                    </Button.Content>
+                </Button>
+            </Grid>
+        </Grid>
+        <Grid x:Name="Explorer"
+              Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <TreeView x:Name="TreeExplorer">
+                <TreeView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel
+                            Orientation="Horizontal">
+                            <Image/>
+                            <TextBlock/>
+                        </StackPanel>
+                    </DataTemplate>
+                </TreeView.ItemTemplate>
+            </TreeView>
+            <GridSplitter
+                Width="5"
+                HorizontalAlignment="Center"
+                Grid.Column="1"/>
+            <!--詳細表示部分をRegionにする？-->
+            <ListView
+                Grid.Column="2">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn/>
+                    </GridView>
+                </ListView.View>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+        <Grid x:Name="Input"
+              Grid.Row="2"/>
+    </Grid>
+</Window>

@@ -48,6 +48,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -63,17 +64,17 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="App.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
+    <Compile Include="DefaultPopupWindows\DefaultFilePickerWindow.xaml.cs">
+      <DependentUpon>DefaultFilePickerWindow.xaml</DependentUpon>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
+    <Compile Include="FilePickerConfirmation.cs" />
+    <Compile Include="IFilePickerConfirmation.cs" />
+    <Compile Include="InteractionRequest\FilePick.cs" />
+    <Compile Include="InteractionRequest\IFilePick.cs" />
+    <Compile Include="InteractionRequest\IPick.cs" />
     <Compile Include="InteractonRequestExtensions.cs" />
+    <Compile Include="Models\DirectoryNode.cs" />
+    <Compile Include="PopupFilePickerWindowAction.cs" />
     <Compile Include="PopupWindowActionBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -99,8 +100,49 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <Page Include="DefaultPopupWindows\DefaultFilePickerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\Folder_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\FolderError_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\FolderOpen_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Next_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Previous_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Refresh_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Next_grey_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Previous_grey_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\GlyphDown_linkBlueNoHalo_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\GlyphDown_71GrayNoHalo_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Document_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\FileError_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Converters\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

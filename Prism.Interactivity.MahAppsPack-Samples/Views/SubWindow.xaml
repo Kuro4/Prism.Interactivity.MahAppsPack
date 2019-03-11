@@ -1,0 +1,74 @@
+﻿<UserControl x:Class="Prism.Interactivity.MahAppsPack_Samples.Views.SubWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/"
+             xmlns:prismMetro="clr-namespace:Prism.Interactivity.MahAppsPack;assembly=Prism.Interactivity.MahAppsPack"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             Height="150"
+             Width="300">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ObjectDataProvider x:Key="AccentEnumKey" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
+                <ObjectDataProvider.MethodParameters>
+                    <x:Type Type="prismMetro:Accents"/>
+                </ObjectDataProvider.MethodParameters>
+            </ObjectDataProvider>
+            <ObjectDataProvider x:Key="ThemeEnumKey" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
+                <ObjectDataProvider.MethodParameters>
+                    <x:Type Type="prismMetro:Themes"/>
+                </ObjectDataProvider.MethodParameters>
+            </ObjectDataProvider>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <i:Interaction.Triggers>
+        <prism:InteractionRequestTrigger SourceObject="{Binding Notification}">
+            <!--指定したAccentとThemeを適用-->
+            <prismMetro:PopupMetroWindowAction
+                CenterOverAssociatedObject="True"
+                Accent="{Binding Accent.Value}"
+                Theme="{Binding Theme.Value}"/>
+        </prism:InteractionRequestTrigger>
+        <prism:InteractionRequestTrigger SourceObject="{Binding Confirmation}">
+            <!--OwnerのAccentとThemeを適用-->
+            <prismMetro:PopupMetroWindowAction 
+                CenterOverAssociatedObject="True"
+                Accent="{Binding Accent.Value}"
+                Theme="{Binding Theme.Value}"/>
+        </prism:InteractionRequestTrigger>
+    </i:Interaction.Triggers>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel
+            Grid.Row="1"
+            Grid.ColumnSpan="2">
+            <Button
+                Content="Notification"
+                Command="{Binding RaiseNotification}" Margin="0,10,0,0"/>
+            <Button
+                Content="Confirmation"
+                Command="{Binding RaiseConfirmation}" Margin="0,10,0,0"/>
+        </StackPanel>
+        <DockPanel>
+            <TextBlock Text="Accent" TextAlignment="Center" VerticalAlignment="Center"/>
+            <ComboBox 
+                ItemsSource="{Binding Source={StaticResource AccentEnumKey}}" 
+                SelectedItem="{Binding Accent.Value}"
+                Margin="5,0,0,0"/>
+        </DockPanel>
+        <DockPanel Grid.Column="1">
+            <TextBlock Text="Them" TextAlignment="Center" VerticalAlignment="Center"/>
+            <ComboBox ItemsSource="{Binding Source={StaticResource ThemeEnumKey}}" SelectedItem="{Binding Theme.Value}" Margin="5,0,0,0"/>
+        </DockPanel>
+    </Grid>
+</UserControl>

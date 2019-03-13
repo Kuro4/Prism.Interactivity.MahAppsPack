@@ -34,9 +34,7 @@
         <prism:InteractionRequestTrigger SourceObject="{Binding Confirmation}">
             <!--OwnerのAccentとThemeを適用-->
             <prismMetro:PopupMetroWindowAction 
-                CenterOverAssociatedObject="True"
-                Accent="{Binding Accent.Value}"
-                Theme="{Binding Theme.Value}"/>
+                CenterOverAssociatedObject="True"/>
         </prism:InteractionRequestTrigger>
     </i:Interaction.Triggers>
 

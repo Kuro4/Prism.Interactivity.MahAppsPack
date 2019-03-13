@@ -35,6 +35,7 @@ namespace Prism.Interactivity.MahAppsPack
         public static readonly DependencyProperty ThemeProperty =
             DependencyProperty.Register("Theme", typeof(Themes?), typeof(PopupMetroWindowAction), new PropertyMetadata(null));
         #endregion
+
         protected override Window CreateWindow()
         {
             MetroWindow window = new DefaultMetroWindow();
@@ -70,8 +71,13 @@ namespace Prism.Interactivity.MahAppsPack
                     window,
                     MahApps.Metro.ThemeManager.GetAccent(AccentsExtensions.ToStringFromEnum(this.Accent.Value)),
                     MahApps.Metro.ThemeManager.GetAppTheme(ThemesExtensions.ToStringFromEnum(this.Theme.Value)));
+                return;
             }
-            else if (window.Owner is MetroWindow) window.Resources.MergedDictionaries.AddRange(window.Owner.Resources.MergedDictionaries);
+            window.Owner = Window.GetWindow(this.AssociatedObject);
+            if (window.Owner is MetroWindow)
+            {
+                window.Resources.MergedDictionaries.AddRange(window.Owner.Resources.MergedDictionaries);
+            }
         }
     }
 }

@@ -47,6 +47,9 @@
             <prismMetro:PopupMetroWindowAction
                 CenterOverAssociatedObject="True"
                 IsModal="True">
+                <prismMetro:PopupMetroWindowAction.MetroStyle>
+                    <ResourceDictionary Source="/Prism.Interactivity.MahAppsPack-Samples;component/MetroWindowStyle.xaml"/>
+                </prismMetro:PopupMetroWindowAction.MetroStyle>
                 <prismMetro:PopupMetroWindowAction.WindowContent>
                     <local:SubWindow/>
                 </prismMetro:PopupMetroWindowAction.WindowContent>

@@ -76,7 +76,8 @@ namespace Prism.Interactivity.MahAppsPack
             window.Owner = Window.GetWindow(this.AssociatedObject);
             if (window.Owner is MetroWindow)
             {
-                window.Resources.MergedDictionaries.AddRange(window.Owner.Resources.MergedDictionaries);
+                var ownerStyle = MahApps.Metro.ThemeManager.DetectAppStyle(window.Owner);
+                MahApps.Metro.ThemeManager.ChangeAppStyle(window, ownerStyle.Item2, ownerStyle.Item1);
             }
         }
     }
